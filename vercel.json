@@ -7,18 +7,6 @@
     { "src": "./build/**", "use": "@now/static" }
   ],
   "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "build/api/$1",
-      "headers": {
-        "Content-Type": "application/json",
-        "Cache-Control": "no-cache"
-      },
-      "continue": false
-    },
-    {
-      "src": "/(.*)",
-      "dest": "build/$1"
-    }
+    { "src": "/(.*)", "dest": "build/$1" }
   ]
 }

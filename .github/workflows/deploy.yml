@@ -1,0 +1,24 @@
+name: deploy
+on: [push]
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+        with:
+          path: 'open-data-frontend'
+          repository: 'N3XT191/open-data-frontend'
+      - uses: actions/checkout@v2
+        with:
+          path: 'open-data-backend'
+          repository: 'tehwalris/open-data-backend'
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - run: ./setup.sh
+      - run: ./build.sh
+

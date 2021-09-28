@@ -15,5 +15,5 @@ cd ..
 rm -rf build
 cp -R open-data-frontend/build build
 cp -R open-data-backend/static build/api
-cp build/index.html build/404.html
+cp build/index.html 404.html
 ls -lah build

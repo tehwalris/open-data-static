@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-trap "kill 0" EXIT
+trap "kill -- -$BASHPID" EXIT
 
 cd open-data-backend
 # HACK start the server early to make sure it is ready when src.static runs

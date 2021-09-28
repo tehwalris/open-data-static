@@ -29,4 +29,8 @@ jobs:
           python-version: '3.9'
       - run: ./setup.sh
       - run: ./build.sh
-
+      - run: npx vercel --prod -t ${{ secrets.ZEIT_NOW_TOKEN }}
+        working-directory: forest
+        env:
+          NOW_ORG_ID: ${{ secrets.ZEIT_NOW_ORG_ID }}
+          NOW_PROJECT_ID: ${{ secrets.ZEIT_NOW_PROJECT_ID }}

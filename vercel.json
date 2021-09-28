@@ -7,6 +7,7 @@
     { "src": "./build/**", "use": "@now/static" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "build/$1" }
+    { "src": "/(.*)", "dest": "build/$1" },
+    { "src": "/(.*)", "status": 404, "dest": "build/index.html" }
   ]
 }

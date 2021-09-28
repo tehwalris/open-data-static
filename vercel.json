@@ -10,16 +10,10 @@
     {
       "src": "/api/(.*)",
       "dest": "build/$1",
-      "headers" : [
-        {
-          "key" : "Content-Type",
-          "value" : "application/rss+xml"
-        },
-        {
-          "key" : "Cache-Control",
-          "value" : "no-cache"
-        }
-      ]
+      "headers" : {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-cache"
+      }
     },
     {
       "src": "/(.*)",

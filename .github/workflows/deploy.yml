@@ -31,7 +31,7 @@ jobs:
       # - run: ./build.sh
       - run: mkdir -p build/api
       - run: echo 'walrus' > build/index.html
-      - run: "echo '{\"value\": \"walrus\"}' > api/questions"
+      - run: "echo '{\"value\": \"walrus\"}' > build/api/questions"
       - run: npx vercel --prod -t ${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}

@@ -29,8 +29,9 @@ jobs:
       #     python-version: '3.9'
       # - run: ./setup.sh
       # - run: ./build.sh
-      - run: mkdir build
+      - run: mkdir -p build/api
       - run: echo 'walrus' > build/index.html
+      - run: echo '{"value": "walrus"}' > api/questions
       - run: npx vercel --prod -t ${{ secrets.VERCEL_TOKEN }}
         env:
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}

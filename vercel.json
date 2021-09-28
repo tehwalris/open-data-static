@@ -8,5 +8,20 @@
   ],
   "routes": [
     { "src": "/(.*)", "dest": "build/$1" }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers" : [
+        {
+          "key" : "Content-Type",
+          "value" : "application/rss+xml"
+        },
+        {
+          "key" : "Cache-Control",
+          "value" : "no-cache"
+        }
+      ]
+    }
   ]
 }

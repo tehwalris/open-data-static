@@ -5,30 +5,30 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      # - uses: actions/checkout@v2
-      #   with:
-      #     path: 'open-data-frontend'
-      #     repository: 'N3XT191/open-data-frontend'
-      # - uses: actions/checkout@v2
-      #   with:
-      #     path: 'open-data-backend'
-      #     repository: 'tehwalris/open-data-backend'
-      # - name: Cache datasets
-      #   id: cache-datasets
-      #   uses: actions/cache@v2
-      #   with:
-      #     path: open-data-backend/data
-      #     key: datasets-${{ hashFiles('download.sh') }}-${{ hashFiles('open-data-backend/download-data.sh') }}
-      # - run: ./download.sh
-      #   if: steps.cache-datasets.outputs.cache-hit != 'true'
-      # - uses: actions/setup-node@v2
-      #   with:
-      #     node-version: '14'
-      # - uses: actions/setup-python@v2
-      #   with:
-      #     python-version: '3.9'
-      # - run: ./setup.sh
-      # - run: ./build.sh
+      - uses: actions/checkout@v2
+        with:
+          path: 'open-data-frontend'
+          repository: 'N3XT191/open-data-frontend'
+      - uses: actions/checkout@v2
+        with:
+          path: 'open-data-backend'
+          repository: 'tehwalris/open-data-backend'
+      - name: Cache datasets
+        id: cache-datasets
+        uses: actions/cache@v2
+        with:
+          path: open-data-backend/data
+          key: datasets-${{ hashFiles('download.sh') }}-${{ hashFiles('open-data-backend/download-data.sh') }}
+      - run: ./download.sh
+        if: steps.cache-datasets.outputs.cache-hit != 'true'
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - run: ./setup.sh
+      - run: ./build.sh
       - run: mkdir -p build/api
       - run: echo 'walrus' > build/index.html
       - run: "echo '{\"value\": \"walrus\"}' > build/api/questions"

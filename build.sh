@@ -3,8 +3,9 @@
 trap "kill 0" EXIT
 
 cd open-data-backend
-python -m src.preprocess
+# HACK start the server early to make sure it is ready when src.static runs
 uvicorn main:app &
+python -m src.preprocess
 python -m src.static
 
 cd ../open-data-frontend

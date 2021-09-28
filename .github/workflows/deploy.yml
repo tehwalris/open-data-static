@@ -21,12 +21,12 @@ jobs:
           key: datasets-${{ hashFiles('download.sh') }}-${{ hashFiles('open-data-backend/download-data.sh') }}
       - run: ./download.sh
         if: steps.cache-datasets.outputs.cache-hit != 'true'
-      # - uses: actions/setup-node@v2
-      #   with:
-      #     node-version: '14'
-      # - uses: actions/setup-python@v2
-      #   with:
-      #     python-version: '3.9'
-      # - run: ./setup.sh
-      # - run: ./build.sh
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - run: ./setup.sh
+      - run: ./build.sh
 

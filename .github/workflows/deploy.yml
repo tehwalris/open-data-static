@@ -13,6 +13,15 @@ jobs:
         with:
           path: 'open-data-backend'
           repository: 'tehwalris/open-data-backend'
+      - name: Cache datasets
+        id: cache-datasets
+        uses: actions/cache@v2
+        with:
+          path: open-data-backend/data
+          key: datasets-${{ hashFiles('download.sh') }}-${{ hashFiles('open-data-backend/download-data.sh') }}
+          key: ${{ runner.os }}-primes
+      - run: ./download.sh
+        if: steps.cache-datasets.outputs.cache-hit != 'true'
       - uses: actions/setup-node@v2
         with:
           node-version: '14'

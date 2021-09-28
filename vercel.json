@@ -9,11 +9,12 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "build/$1",
-      "headers" : {
+      "dest": "build/api/$1",
+      "headers": {
         "Content-Type": "application/json",
         "Cache-Control": "no-cache"
-      }
+      },
+      "continue": false
     },
     {
       "src": "/(.*)",
